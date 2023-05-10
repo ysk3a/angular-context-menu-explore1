@@ -1,32 +1,17 @@
+<!-- https://stackoverflow.com/questions/48523288/using-implict-to-pass-multiple-parameters -->
 <p class="first">a:i, b:counter</p>
-<div
-  style="background-color: lightblue"
-  *ngFor="let i of list"
-  [cdkContextMenuTriggerFor]="context_menu1"
-  [cdkContextMenuTriggerData]="{ a:i, b:counter}"
->
+<div style="background-color: lightblue" *ngFor="let i of list" [cdkContextMenuTriggerFor]="context_menu1" [cdkContextMenuTriggerData]="{ a:i, b:counter}">
   <!-- 
     [cdkContextMenuTriggerData]="{ $implicit: {i, counter} }"
 
   [cdkContextMenuTriggerData]="{ i, counter }"
  -->
-  Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It's
-  not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a
-  Dark Lord of the Sith, so powerful and so wise he could use the Force to
-  influence the midichlorians to create life… He had such a knowledge of the
-  dark side that he could even keep the ones he cared about from dying. The dark
-  side of the Force is a pathway to many abilities some consider to be
-  unnatural. He became so powerful… the only thing he was afraid of was losing
-  his power, which eventually, of course, he did. Unfortunately, he taught his
-  apprentice everything he knew, then his apprentice killed him in his sleep.
-  Ironic. He could save others from death, but not himself.
+  Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself.
 </div>
 <button (click)="increment()">Increment {{ counter }}</button>
 <ng-template #context_menu1 let-data="a" let-data2="b">
   <div class="example-menu" cdkMenu>
-    <button class="example-menu-item" cdkMenuItem>
-      Cut {{data | json}} - {{data2 | json}}
-    </button>
+    <button class="example-menu-item" cdkMenuItem>Cut {{data | json}} - {{data2 | json}}</button>
     <button class="example-menu-item" cdkMenuItem>Copy</button>
     <button class="example-menu-item" cdkMenuItem>Link</button>
   </div>
@@ -34,73 +19,33 @@
 <hr />
 <p class="second">i, counter</p>
 
-<div
-  style="background-color: lightgray"
-  *ngFor="let i of list"
-  [cdkContextMenuTriggerFor]="context_menu2"
-  [cdkContextMenuTriggerData]="{ i, counter }"
->
-  Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It's
-  not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a
-  Dark Lord of the Sith, so powerful and so wise he could use the Force to
-  influence the midichlorians to create life… He had such a knowledge of the
-  dark side that he could even keep the ones he cared about from dying. The dark
-  side of the Force is a pathway to many abilities some consider to be
-  unnatural. He became so powerful… the only thing he was afraid of was losing
-  his power, which eventually, of course, he did. Unfortunately, he taught his
-  apprentice everything he knew, then his apprentice killed him in his sleep.
-  Ironic. He could save others from death, but not himself.
-</div>
+<div style="background-color: lightgray" *ngFor="let i of list" [cdkContextMenuTriggerFor]="context_menu2" [cdkContextMenuTriggerData]="{ i, counter }">Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself.</div>
 <hr />
 <ng-template #context_menu2 let-data="a" let-data2="b">
   <div class="example-menu" cdkMenu>
     <button>Counter = {{ data | json }} {{data}}</button>
     <ng-container *ngIf="data?.id == 1; else other">
-      <button class="example-menu-item" cdkMenuItem>
-        Cut {{data?.i.id}} - {{data?.counter}}
-      </button>
+      <button class="example-menu-item" cdkMenuItem>Cut {{data?.i.id}} - {{data?.counter}}</button>
       <button class="example-menu-item" cdkMenuItem>Copy</button>
     </ng-container>
     <ng-template #other>
-      <button class="example-menu-item" cdkMenuItem>
-        Link {{data?.i.id}} - {{data?.counter}}
-      </button>
+      <button class="example-menu-item" cdkMenuItem>Link {{data?.i.id}} - {{data?.counter}}</button>
     </ng-template>
   </div>
 </ng-template>
 <p class="second">$implicit: i, counter</p>
 
-<div
-  style="background-color: lightgreen"
-  *ngFor="let i of list"
-  [cdkContextMenuTriggerFor]="context_menu3"
-  [cdkContextMenuTriggerData]="{ $implicit: {i, counter} }"
->
-  Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It's
-  not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a
-  Dark Lord of the Sith, so powerful and so wise he could use the Force to
-  influence the midichlorians to create life… He had such a knowledge of the
-  dark side that he could even keep the ones he cared about from dying. The dark
-  side of the Force is a pathway to many abilities some consider to be
-  unnatural. He became so powerful… the only thing he was afraid of was losing
-  his power, which eventually, of course, he did. Unfortunately, he taught his
-  apprentice everything he knew, then his apprentice killed him in his sleep.
-  Ironic. He could save others from death, but not himself.
-</div>
+<div style="background-color: lightgreen" *ngFor="let i of list" [cdkContextMenuTriggerFor]="context_menu3" [cdkContextMenuTriggerData]="{ $implicit: {i, counter} }">Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself.</div>
 
 <ng-template #context_menu3 let-data>
   <div class="example-menu" cdkMenu>
     <button>Counter = {{ data | json }}</button>
     <ng-container *ngIf="data?.id == 1; else other">
-      <button class="example-menu-item" cdkMenuItem>
-        Cut {{data?.i.id}} - {{data?.counter}}
-      </button>
+      <button class="example-menu-item" cdkMenuItem>Cut {{data?.i.id}} - {{data?.counter}}</button>
       <button class="example-menu-item" cdkMenuItem>Copy</button>
     </ng-container>
     <ng-template #other>
-      <button class="example-menu-item" cdkMenuItem>
-        Link {{data?.i.id}} - {{data?.counter}}
-      </button>
+      <button class="example-menu-item" cdkMenuItem>Link {{data?.i.id}} - {{data?.counter}}</button>
     </ng-template>
   </div>
 </ng-template>
